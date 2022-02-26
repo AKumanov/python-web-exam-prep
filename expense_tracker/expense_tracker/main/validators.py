@@ -2,7 +2,6 @@ from django.core.exceptions import ValidationError
 from django.utils.deconstruct import deconstructible
 
 
-
 def only_letter_validator(value):
     if not value.isalpha():
         raise ValidationError('Ensure this value contains only letters.')
@@ -29,4 +28,3 @@ class MaxFileSizeInMbValidator:
 
     def __get_exception_message(self):
         return f'Max file size is {self.max_size} MB'
-

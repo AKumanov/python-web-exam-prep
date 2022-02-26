@@ -1,4 +1,4 @@
-from django.core.validators import MinLengthValidator
+from django.core.validators import MinLengthValidator, MinValueValidator
 from django.db import models
 from .validators import only_letter_validator, positive_num_validator, MaxFileSizeInMbValidator
 
@@ -45,14 +45,14 @@ class Expense(models.Model):
     title = models.CharField(
         max_length=30
     )
-    expense_image = models.ImageField(
+    expense_image = models.URLField(
 
     )
-    description = models.URLField(
+    description = models.TextField(
         blank=True,
         null=True,
     )
 
     price = models.FloatField(
-
+        validators=[positive_num_validator, MinValueValidator(0)]
     )
