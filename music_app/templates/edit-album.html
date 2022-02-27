@@ -1,0 +1,26 @@
+{% extends 'base.html' %}
+{% load static %}
+
+{% block content %}
+
+<!--Edit Page-->
+<section class="editPage">
+    <form method="POST" action="{% url 'edit-album' album.id %}">
+        <fieldset>
+            <legend>Edit Album</legend>
+            <div class="container">
+                {% csrf_token %}
+                {% for field in form %}
+                <!-- Form for Editing Album -->
+                <label for="{{ field.label }}">{{ field.label}}</label>
+                    {{ field }}
+                    {{ field.errors }}
+                {% endfor %}
+
+                <!-- Button for Editing Album -->
+                <button class="edit-album" type="submit">Edit Album</button>
+            </div>
+        </fieldset>
+    </form>
+</section>
+{% endblock %}

@@ -12,6 +12,6 @@ urlpatterns = [
 
 
     path('expense/create/', views.create_expense, name='create-expense'),
-      path('expense/edit/<str:pk>/', views.edit_expense, name='edit-expense'),
+    path('expense/edit/<str:pk>/', views.edit_expense, name='edit-expense'),
     path('expense/delete/<str:pk>/', views.delete_expense, name='delete-expense'),
 ]

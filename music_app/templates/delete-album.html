@@ -1,0 +1,29 @@
+{% extends 'base.html' %}
+
+{% load static %}
+
+{% block content %}
+
+<!--Edit Page-->
+<section class="editPage">
+    <form method="POST" action="{% url 'delete-album' album.id %}">
+        <fieldset>
+            <legend>Delete Album</legend>
+            <div class="container">
+                {% csrf_token %}
+                {% for field in form %}
+                <!-- Form for Deleting an Album -->
+                <label for="{{ field.label }}">{{ field.label}}</label>
+                    {{ field }}
+
+                {% endfor %}
+
+
+                <!-- Button for Deleting an Album -->
+                <button class="delete-album" type="submit">Delete Album</button>
+            </div>
+        </fieldset>
+    </form>
+</section>
+
+{% endblock %}
